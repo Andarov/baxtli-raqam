@@ -29,12 +29,32 @@
             <div class="flex flex-col justify-center items-center py-10">
                 <!-- Hero-title -->
                 <h2 class="text-2xl font-semibold mb-6 text-center md:text-4xl">Assalomu aleykum</h2>
-                <p class="text-center text-sm font-medium sm:text-lg">Oltin raqam o'qyiniga hush kelibiz.</p>
-                <p class="text-center text-sm font-medium sm:text-lg">Siz random orqali tanlab olingan 1dan 20gacha bo'lgan sonlar orasidan sonni topishingiz kerak.</p>
+                <p class="text-center text-sm font-medium sm:text-lg">Oltin raqam o'yiniga hush kelibiz.</p>
+                <p class="text-center text-sm font-medium sm:text-lg">Siz random orqali tanlab olingan 1dan 20gacha bo'lgan sonlar orasidan <strong class="text-yellow-700">oltin</strong> sonni topishingiz kerak.</p>
             </div>
         </div>
     </section>
 
+    <!-- Main -->
+    <main class="py-5 md:py-10">
+        <!-- Main-container -->
+        <div class="container w-full max-w-4xl px-5 mx-auto">
+            <div class="flex flex-col-reverse justify-between md:flex-row">
+                <!-- Input -->
+                <div class="w-full max-w-xs flex flex-row items-center mx-auto md:flex-col md:mx-0 md:mr-5">
+                    <input id="input" class="inline-block w-full bg-white border border-black px-4 py-1 rounded mr-4 md:mr-0 md:mb-5 md:p-5" type="number" min="0" max="20" placeholder="Raqam kiriting">
+                    <button id="check" class="cursor-pointer bg-white border border-black px-4 py-1 rounded text-base font-medium text-zinc-900 md:px-4 md:py-2">Tekshirish</button>
+                </div>
+
+                <!-- Result -->
+                <div class="w-full max-w-md flex flex-col items-center space-y-4 mb-14 mx-auto md:mx-0 md:items-end">
+                    <div id="random-number" class="text-center w-40 bg-white border border-black py-4 font-bold text-2xl">?</div>
+                    <p class="font-medium text-base">Tahminiy yaqinligi: <span id="guess" class="font-normal">Hali son kiritilgani yo'q</span></p>
+                    <p class="font-medium text-base">Qolgan urinishlar soni: <span id="total" class="font-normal"></span></p>
+                </div>
+            </div>
+        </div>
+    </main>
 
 
     
