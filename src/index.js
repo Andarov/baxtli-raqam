@@ -5,6 +5,7 @@ const elCheck = document.querySelector('#check');
 const elRandomNumber = document.querySelector('#random-number');
 const elGuess = document.querySelector('#guess');
 let elTotal = document.querySelector('#total');
+let elBody = document.querySelector('#body');
 
 // Random raqam yaratish
 const random = Math.trunc(Math.random()*20)+1;
@@ -19,6 +20,8 @@ elCheck.addEventListener('click', function() {
         elGuess.textContent = "Tabriklaymiz!!!";
         elCheck.disabled = true;
         elInput.value = ''
+        console.log('salom');
+        elBody.classList.add('bg-green-500')
     }
     // Inputga kiritilgan raqam katta bo'lsa
     else if(elInput.value > random) {
@@ -39,6 +42,7 @@ elCheck.addEventListener('click', function() {
         elRandomNumber.textContent = 'Yutqazdingiz';
         elCheck.disabled = true;
         elInput.value = ''
+        elBody.classList.add('bg-red-300')
     }
 
     // Yangilash
