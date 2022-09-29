@@ -8,30 +8,36 @@ let elTotal = document.querySelector('#total');
 let elBody = document.querySelector('#body');
 
 // Random raqam yaratish
-const random = Math.trunc(Math.random()*20)+1;
+let random = Math.trunc(Math.random()*20)+1;
 
 // Qolgan urinishlarga dastlabki qiymat berish
 elTotal.textContent = 5
 
+const displayMessage = function(message) {
+    elGuess.textContent = message;
+}
+
+const randomNumber = function(randomNum) {
+    elRandomNumber.textContent = randomNum;
+}
+
 elCheck.addEventListener('click', function() {
     // Inputga kiritilgan raqam teng bo'lsa
     if(elInput.value == random) {
-        elRandomNumber.textContent = random;
-        elGuess.textContent = "Tabriklaymiz!!!";
+        randomNumber(random);
+        displayMessage('Tabriklaymiz!!!');
         elCheck.disabled = true;
-        elInput.value = ''
-        console.log('salom');
         elBody.classList.add('bg-green-500')
     }
     // Inputga kiritilgan raqam katta bo'lsa
     else if(elInput.value > random) {
-        elRandomNumber.textContent = 'Afsus...';
-        elGuess.textContent = "Siz kiritgan raqam katta";
+        randomNumber("Afsus...");
+        displayMessage('Siz kiritgan raqam katta');
     }
     // Inputga kiritilgan raqam kichik bo'lsa
     else if(elInput.value < random) {
-        elRandomNumber.textContent = 'Afsus...';
-        elGuess.textContent = "Siz kiritgan raqam kichik";
+        randomNumber("Afsus...");
+        displayMessage('Siz kiritgan raqam kichik');
     }
 
     // Qolgan urinishlardan bitta ayirish
@@ -39,18 +45,32 @@ elCheck.addEventListener('click', function() {
 
     // Urinishlar tugab qolsa
     if(elTotal.textContent == 0) {
-        elRandomNumber.textContent = 'Yutqazdingiz';
-        elCheck.disabled = true;
-        elInput.value = ''
-        elBody.classList.add('bg-red-300')
+        // Agar teng kelib qolsa
+        if(elInput.value == random) {
+            randomNumber(random);
+            displayMessage('Tabriklaymiz!!!');
+            elCheck.disabled = true;
+            elBody.classList.add('bg-green-500')
+        }
+        // Topa olmasa
+        else{
+            randomNumber("Afsus...");
+            displayMessage('Siz yutqazdingiz.');
+            elCheck.disabled = true;
+            elBody.classList.add('bg-red-300');
+        }
     }
 
     // Yangilash
     elRefresh.addEventListener('click', function() {
+        random = Math.trunc(Math.random()*20)+1;
         elCheck.disabled = false;
-        elRandomNumber.textContent = '?';
-        elGuess.textContent = "Hali son kiritilgani yo'q";
-        elTotal.textContent = 5
-        elInput.value = ''
+        randomNumber("?");
+        displayMessage("Hali son kiritilgani yo'q");
+        elTotal.textContent = 5;
+        elInput.value = '';
+        elBody.classList.remove('bg-red-300');
+        elBody.classList.remove('bg-green-500');
+        elBody.classList.add('bg-slate-300');
     })
 })
