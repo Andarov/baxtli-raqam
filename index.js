@@ -67,7 +67,7 @@ elCheck.addEventListener('click', function() {
         elCheck.disabled = false;
         randomNumber("?");
         displayMessage("Hali son kiritilgani yo'q");
-        elTotal.textContent = 5;
+        elTotal.textContent = 3;
         elInput.value = '';
         elBody.classList.remove('bg-red-300');
         elBody.classList.remove('bg-green-500');
