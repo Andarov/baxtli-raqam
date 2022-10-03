@@ -11,7 +11,7 @@ let elBody = document.querySelector('#body');
 let random = Math.trunc(Math.random()*20)+1;
 
 // Qolgan urinishlarga dastlabki qiymat berish
-elTotal.textContent = 5
+elTotal.textContent = 3
 
 const displayMessage = function(message) {
     elGuess.textContent = message;
